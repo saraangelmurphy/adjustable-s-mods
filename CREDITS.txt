@@ -1,3 +1,6 @@
+Original creator and main author: Audax.
+Maintainer: saraangelmurphy.
+
 wispborne: for the starsector intellij mod template and the github action script.
 lukas04: for the lunalib UI library and the implementation of the library in Random Assortment of Things.
 starsector community: for many resources in regard to modding and spriting.

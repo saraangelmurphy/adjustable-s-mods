@@ -1,3 +1,11 @@
+### 1.3.0 - Starsector 0.98.5a
+- Purchase additional S-Mod slots through a native-widget refit panel.
+- Use vanilla colony refit controls for S-Mod removals and replacements.
+- Use per-variant upgrade state and a dedicated stat-only hullmod for ships and modules.
+- Validate purchase costs, prevent duplicate/stale actions, and guard invalid state and price overflow.
+- Require LunaLib 2.1.0 and Java 17.
+- Audax is the original creator and main author; saraangelmurphy maintains this version.
+- Include the original CC BY-NC-SA license and an AI-use disclosure for maintenance changes.
 ### 1.1.3d
 - Release 1.1.3d
 - Update version file download url

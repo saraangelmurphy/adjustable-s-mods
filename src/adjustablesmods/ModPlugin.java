@@ -7,6 +7,8 @@ import lunalib.lunaRefit.LunaRefitManager;
 public class ModPlugin extends BaseModPlugin {
     @Override
     public void onApplicationLoad() {
-        LunaRefitManager.addRefitButton(new SModRefitButton());
+        if (!LunaRefitManager.hasButtonOfClass(SModRefitButton.class)) {
+            LunaRefitManager.addRefitButton(new SModRefitButton());
+        }
     }
 }
