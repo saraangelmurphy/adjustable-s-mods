@@ -2,7 +2,7 @@
     "id": "adjustablesmods",
     "name": "Adjustable S Mods",
     "author": "Audax (author); saraangelmurphy (maintainer)",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "Purchase permanent additional S-Mod slots for ships and modules using story points.",
     "gameVersion": "0.98.5a",
     "jars": [

@@ -6,6 +6,16 @@ param(
     [switch]$Package
 )
 $ErrorActionPreference = 'Stop'
+$info = Get-Content (Join-Path $PSScriptRoot 'mod_info.json') -Raw | ConvertFrom-Json
+$tracking = Get-Content (Join-Path $PSScriptRoot 'AdjustableSMods.version') -Raw | ConvertFrom-Json
+$trackedVersion = "$($tracking.modVersion.major).$($tracking.modVersion.minor).$($tracking.modVersion.patch)"
+if ($info.version -ne $trackedVersion) { throw 'Mod and Version Checker versions differ.' }
+$registered = @(Get-Content (Join-Path $PSScriptRoot 'data\config\version\version_files.csv') |
+    Select-Object -Skip 1 | Where-Object { $_.Trim() })
+if ($registered.Count -ne 1 -or $registered[0].Trim() -ne 'AdjustableSMods.version') { throw 'Version Checker registration is incorrect.' }
+if ((Get-Content (Join-Path $PSScriptRoot 'CHANGELOG.txt') -First 1) -ne "Version $trackedVersion") {
+    throw 'Changelog does not begin with the current release version.'
+}
 if (-not $JdkPath) {
     $portable = Get-ChildItem (Join-Path (Split-Path $PSScriptRoot) 'tools') -Directory -Filter 'jdk-17*' -ErrorAction SilentlyContinue |
         Sort-Object Name -Descending | Select-Object -First 1
